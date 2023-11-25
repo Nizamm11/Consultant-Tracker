@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidators } from '../custom-validator';
+import { UserService } from '../Services/user.service';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -30,9 +33,30 @@ passwordConfirm:new FormControl(null,[Validators.required,]),
 validators: CustomValidators.passwordsMatching
 });
 
-constructor(){}
+constructor(private userService:UserService,private router:Router){}
 
-register(){}
+register(){
+  if (this.registerform.valid){
+    this.userService.create({
+      firstname: this.fname.value,
+      lastname: this.lname.value,
+      address: this.address.value,
+      project: this.project.value,
+      projstart: this.projectstart.value,
+      projend: this.projectend.value,
+      SSN: this.SSN.value,
+      visastatus: this.visastatus.value,
+      email: this.email.value,
+      password: this.password.value,
+
+
+
+
+
+    }).pipe(tap(()=> this.router.navigate(['../login'])))
+    .subscribe();
+  }
+}
 
 get fname():FormControl {
   return this.registerform.get('fname') as FormControl;

@@ -19,11 +19,11 @@
     <form [formGroup]="registerform" (ngSubmit)="register()">
         <h3>Register here</h3>
         <label for="fname">First Name</label>
-        <input formControlName="fname" type="text" placeholder="Name " id="name">
+        <input formControlName="fname" type="text" placeholder="Name " id="fname">
         <mat-error *ngIf= "fname.touched && fname.hasError('required')">First Name is required</mat-error>
 
         <label for="lname">Last Name</label>
-        <input formControlName="lname" type="text" placeholder="Name " id="name">
+        <input formControlName="lname" type="text" placeholder="Name " id="lname">
         <mat-error *ngIf= "lname.touched && lname.hasError('required')">Last Name is required</mat-error>
 
         <label for="address">Address</label>
@@ -66,10 +66,6 @@
         <label for="passwordConfirm">Confirm Password</label>
         <input formControlName="passwordConfirm" type="password" placeholder="Password" id="passwordConfirm">
         <mat-error *ngIf= "passwordConfirm.touched && registerform.hasError('passwordsNotMatching')">Passwords Not Matching😢</mat-error>
-
-    <br>
-       <mat-hint *ngIf="!registerform.valid"><small>Plese fill out all required information</small></mat-hint>
-    <br>
     
     
         <div id="container">
