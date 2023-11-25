@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title> Register Form </title>
+ 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    
+    <style media="screen">
+     
+    </style>
+</head>
+<body>
+    <div class="background">
+     <h3> Welcome to Consultant-Tracker!</h3>   
+    <form [formGroup]="registerform" (ngSubmit)="register()">
+        <h3>Register here</h3>
+        <label for="fname">First Name</label>
+        <input formControlName="fname" type="text" placeholder="Name " id="name">
+        <mat-error *ngIf= "fname.touched && fname.hasError('required')">First Name is required</mat-error>
+
+        <label for="lname">Last Name</label>
+        <input formControlName="lname" type="text" placeholder="Name " id="name">
+        <mat-error *ngIf= "lname.touched && lname.hasError('required')">Last Name is required</mat-error>
+
+        <label for="address">Address</label>
+        <input formControlName="address" type="text" placeholder="Address " id="address">
+        <mat-error *ngIf= "address.touched && address.hasError('required')">Address is required</mat-error>
+
+        <label for="project">Project</label>
+        <input formControlName="project" type="text" placeholder=" Project Name" id="project">
+        <mat-error *ngIf= "project.touched && project.hasError('required')"> Please Enter your Project</mat-error>
+
+        <label for="projectstart">Project Start Date</label>
+        <input formControlName="projectstart" type="date" placeholder=" " id="projectstart">
+        <mat-error *ngIf= "projectstart.touched && projectstart.hasError('required')"> Please Enter your Project Start Date</mat-error>
+
+        <label for="projectend">Project End Date</label>
+        <input formControlName="projectend" type="date" placeholder=" " id="projectend">
+        <mat-error *ngIf= "projectend.touched && projectend.hasError('required')"> Please Enter your Project End Date</mat-error>
+
+        
+        <label for="SSN">Social Security Number</label>
+        <input formControlName="SSN" type="password" placeholder="SSN " id="SSN">
+        <mat-error *ngIf= "SSN.touched && SSN.hasError('required')"> Please Enter SSN 😈</mat-error>
+
+
+        <label for="visastatus">Visa Status</label>
+        <input formControlName="visastatus" type="text" placeholder="Status " id="visastatus">
+        <mat-error *ngIf= "visastatus.touched && visastatus.hasError('required')"> Please Enter Your Visa-status</mat-error>
+
+        
+        <label for="Email">Email</label>
+        <input formControlName="email" type="text" placeholder="Email " id="Email">
+        <mat-error *ngIf= "email.touched && email.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf= "email.touched && email.hasError('email')">Email must be valid</mat-error>
+
+        <label for="password">Password</label>
+        <input formControlName="password" type="password" placeholder="Password" id="password">
+        <mat-error *ngIf= "password.touched && password.hasError('required')">Password is Required 😵‍💫</mat-error>
+
+
+        <label for="passwordConfirm">Confirm Password</label>
+        <input formControlName="passwordConfirm" type="password" placeholder="Password" id="passwordConfirm">
+        <mat-error *ngIf= "passwordConfirm.touched && registerform.hasError('passwordsNotMatching')">Passwords Not Matching😢</mat-error>
+
+    <br>
+       <mat-hint *ngIf="!registerform.valid"><small>Plese fill out all required information</small></mat-hint>
+    <br>
+    
+    
+        <div id="container">
+            <button type="submit" value="Register" [disabled]="!registerform.valid">Submit</button>
+        </div>
+        <div>
+            <button [routerLink]= "['../login']"> Already a Member?  Login </button>
+        </div>
+
+    </form>
+    
+    </div>
+</body>
+</html>
