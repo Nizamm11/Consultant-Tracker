@@ -7,44 +7,53 @@
 }
 body{
     
-    height:100%;
-    
+    background-color: rgb(125, 229, 210);
+    overflow: scroll;
+}
+.background{
+display: flex;
+justify-content: center;
+min-width: 350px;
+margin-bottom: 50px;
 }
 
-form{
-    height: 600px;
-    width: 400px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 50%;
-    left: 50%;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    padding: 50px 35px;
-    
+mat-card{
+    mat-card-content{
+        form{
+            display:flex;
+            flex-direction: column;
+            width: 400px;
+            justify-content: center;
+            
+        }
+    }
 }
+
 form *{
     font-family: 'Poppins',sans-serif;
     color: #131313;
     letter-spacing: 0.5px;
     outline: none;
-    border: none;
+    
 }
 h3{
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
-    text-align: left;
+    text-align: center;
     padding-top:  20px;
-    padding-left: 50px;
+    padding-bottom: 40px;
+    
 
 
 }
-form h3{
+mat-card-title{
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
+    margin-top: 30px;
+    
 }
 
 
@@ -55,16 +64,15 @@ label{
     font-weight: 500;
 }
 input{
-    display: block;
+    
     height: 50px;
     width: 100%;
     background-color: rgb(255, 255, 255);
-    border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
-    backdrop-filter: blur(20px);
+    
 }
 ::placeholder{
     color: #b5b5b5;
@@ -80,11 +88,17 @@ button[type="submit"]{
     font-weight: 700;
     color:white;
     cursor: pointer;
+    margin-top:20px;
 
     }
     
-    input[type="submit"]:hover{
+    button[type="submit"]:hover{
         transition:0.4s;
         border-color:rgba(0, 4, 8, 0.744) ;
+    }
+    .login{
+        margin-top: 10px;
+        margin-bottom: 20px;
+        justify-content: center;
     }
 

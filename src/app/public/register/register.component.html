@@ -4,23 +4,21 @@
 <head>
   
     <title> Register Form </title>
- 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    
-    <style media="screen">
-     
-    </style>
+   
 </head>
 <body>
+    <h3> Welcome to Consultant-Tracker!</h3>  
     <div class="background">
-     <h3> Welcome to Consultant-Tracker!</h3>   
+     <mat-card>
+        <mat-card-title>Register here</mat-card-title>
+
+        <mat-card-content>
     <form [formGroup]="registerform" (ngSubmit)="register()">
-        <h3>Register here</h3>
+       
         <label for="fname">First Name</label>
-        <input formControlName="fname" type="text" placeholder="Name " id="fname">
+        <input matInput formControlName="fname" type="text" placeholder="Name " id="fname">
         <mat-error *ngIf= "fname.touched && fname.hasError('required')">First Name is required</mat-error>
+        
 
         <label for="lname">Last Name</label>
         <input formControlName="lname" type="text" placeholder="Name " id="lname">
@@ -69,14 +67,15 @@
     
     
         <div id="container">
-            <button type="submit" value="Register" [disabled]="!registerform.valid">Submit</button>
+            <button type="submit" value="Register" [disabled]="!registerform.valid">Register</button>
         </div>
-        <div>
-            <button [routerLink]= "['../login']"> Already a Member?  Login </button>
+        <div class="login">
+            <a [routerLink]= "['../login']"> Already a Member?  Login </a>
         </div>
-
+      
     </form>
-    
+      </mat-card-content>
+    </mat-card>
     </div>
 </body>
 </html>
